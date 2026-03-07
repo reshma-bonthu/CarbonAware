@@ -17,7 +17,7 @@ from model import db, User, Prediction
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Bonthu%40123@localhost:5432/carbonaware"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:YOUR_PASSWORD@localhost:5432/carbonaware"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["JWT_SECRET_KEY"] = "carbonaware_secure_key_2026"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
