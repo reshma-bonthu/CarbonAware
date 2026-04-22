@@ -10,28 +10,30 @@ export default function LifestyleStep({ data, setData }) {
 
       {/* Diet Type */}
       <select
-        className={inputClass}
-        value={data.diet_type || ""}
-        onChange={e => update("diet_type", e.target.value.toLowerCase())}
-      >
-        <option value="" disabled>Diet type</option>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="omnivore">Mixed</option>
-        <option value="vegan">Vegan</option>
-      </select>
+  className={inputClass}
+  value={data.diet_type || ""}
+  onChange={(e) => update("diet_type", e.target.value.toLowerCase())}
+>
+  <option value="" disabled>Diet type</option>
+  <option value="vegetarian">Vegetarian</option>
+  <option value="omnivore">Mixed</option>
+  <option value="vegan">Vegan</option>
+</select>
+
+{data.diet_type === "omnivore" && (
+  <input
+    type="number"
+    className={inputClass}
+    placeholder="Meat consumption (kg / week)"
+    value={data.meat_consumption_kg_per_week || ""}
+    onChange={(e) =>
+      update("meat_consumption_kg_per_week", Number(e.target.value))
+    }
+  />
+)}
 
       {/* Heating Type */}
-      <select
-        className={inputClass}
-        value={data.heating_type || ""}
-        onChange={e => update("heating_type", e.target.value.toLowerCase())}
-      >
-        <option value="" disabled>Heating type</option>
-        <option value="electric">Electric</option>
-        <option value="gas">Gas</option>
-        
-        <option value="none">None</option>
-      </select>
+      
 
       <div className="flex flex-col gap-3">
         <label className="flex items-center gap-2">
@@ -52,14 +54,7 @@ export default function LifestyleStep({ data, setData }) {
           Composting
         </label>
 
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={data.owns_pet || false}
-            onChange={e => update("owns_pet", e.target.checked)}
-          />
-          Owns pet
-        </label>
+        
       </div>
     </div>
   );

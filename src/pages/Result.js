@@ -68,19 +68,11 @@ export default function ResultPage() {
         <div className="bg-white rounded-xl shadow p-6">
           <p>Total Emissions</p>
           <h2 className="text-3xl font-bold">
-            {predicted_footprint.toFixed(2)} Tons CO2/ month
+            {predicted_footprint.toFixed(2)} KGS CO2/ month
           </h2>
         </div>
-
-        <div className="bg-white rounded-xl shadow p-6">
-          <p>Estimated Monthly Household Cost</p>
-          <h2 className="text-3xl font-bold">
-            ₹{monthly_cost}
-          </h2>
-          <p className="mt-4 text-emerald-600 font-semibold">
-            Potential Monthly Savings: ₹{monthly_savings}
-          </p>
-        </div>
+        
+        
       </div>
 
       <div className="bg-white rounded-xl shadow p-8 mb-12">
@@ -97,12 +89,22 @@ export default function ResultPage() {
           ))}
         </div>
       </div>
-
       <div className="bg-white rounded-xl shadow p-8 mb-12">
-        <h3 className="text-xl font-semibold mb-6">
-          Financial Optimization Recommendations
-        </h3>
-
+      <div>
+          <div className="text-2xl font-bold" >
+          <p>Estimated Monthly Household Cost ₹{monthly_cost}</p>
+          
+          </div>
+          <br></br>
+          <span className="mt-4 text-2xl text-emerald-600 font-semibold">Potential Monthly Savings if you follow below recommendations: ₹{monthly_savings}</span>
+       
+        </div>
+      </div>
+      <div className="bg-white rounded-xl shadow p-8 mb-12">
+        
+        
+          <h3 className="text-xl font-semibold mb-6">RECOMENDATIONS</h3>
+        
         <div className="space-y-6">
           {recommendations.map((rec, index) => (
             <div key={index} className="border-l-4 border-emerald-600 pl-4">

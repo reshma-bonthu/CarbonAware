@@ -19,13 +19,27 @@ export default function EnergyStep({ data, setData }) {
           onChange={e => update("electricity_kwh_per_month", Number(e.target.value))}
         />
 
-        <input
-          type="number"
-          className={inputClass}
-          placeholder="Natural Gas (SCM / month)"
-          value={data.natural_gas_therms_per_month || ""}
-          onChange={e => update("natural_gas_therms_per_month", Number(e.target.value))}
-        />
+        <select
+  className={inputClass}
+  value={data.heating_type || ""}
+  onChange={e => update("heating_type", e.target.value.toLowerCase())}
+>
+  <option value="" disabled>Heating type</option>
+  <option value="electric">Electric</option>
+  <option value="gas">Gas</option>
+</select>
+
+{data.heating_type === "gas" && (
+  <input
+    type="number"
+    className={inputClass}
+    placeholder="Natural Gas (No of cylinders / month)"
+    value={data.natural_gas_therms_per_month || ""}
+    onChange={e =>
+      update("natural_gas_therms_per_month", Number(e.target.value))
+    }
+  />
+)}
 
         <input
           type="number"

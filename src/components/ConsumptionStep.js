@@ -7,14 +7,7 @@ export default function ConsumptionStep({ data, setData }) {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-4">
-        <input
-          type="number"
-          className={inputClass}
-          placeholder="Meat consumption (kg / week)"
-          value={data.meat_consumption_kg_per_week || ""}
-          onChange={e => u("meat_consumption_kg_per_week", Number(e.target.value))}
-        />
-
+        
         <input
           type="number"
           className={inputClass}
